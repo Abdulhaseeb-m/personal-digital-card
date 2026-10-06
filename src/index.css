@@ -193,58 +193,7 @@ body::before {
   animation: fadeUp 0.6s ease-out 0.45s both;
 }
 
-/* ============================================
-   SAVE CONTACT BUTTON
-   ============================================ */
-.save-contact-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  width: 100%;
-  padding: 16px 24px;
-  margin-bottom: 32px;
-  border: none;
-  border-radius: var(--radius-sm);
-  background: var(--accent-gradient);
-  color: #fff;
-  font-family: var(--font);
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: var(--transition);
-  box-shadow: 0 4px 20px rgba(99, 102, 241, 0.3);
-  position: relative;
-  overflow: hidden;
-  animation: fadeUp 0.6s ease-out 0.5s both;
-}
 
-.save-contact-btn::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(255,255,255,0.15), transparent);
-  opacity: 0;
-  transition: var(--transition);
-}
-
-.save-contact-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(99, 102, 241, 0.4);
-}
-
-.save-contact-btn:hover::before {
-  opacity: 1;
-}
-
-.save-contact-btn:active {
-  transform: translateY(0);
-}
-
-.save-contact-btn svg {
-  width: 20px;
-  height: 20px;
-}
 
 /* ============================================
    SOCIAL LINKS GRID
@@ -324,96 +273,61 @@ body::before {
 .social-card--portfolio .social-card-icon { background: rgba(99,102,241,0.15); color: var(--primary); }
 
 /* ============================================
-   CONTACT LINKS
+   CONTACT BUTTON
    ============================================ */
 .contact-section {
   margin-bottom: 32px;
   animation: fadeUp 0.6s ease-out 0.6s both;
 }
 
-.contact-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.contact-card {
+.contact-btn {
   display: flex;
   align-items: center;
-  gap: 14px;
-  padding: 16px 18px;
-  background: var(--card);
-  border: 1px solid var(--border);
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 16px 24px;
+  border: none;
   border-radius: var(--radius-sm);
+  background: var(--accent-gradient);
+  color: #fff;
+  font-family: var(--font);
+  font-size: 1rem;
+  font-weight: 600;
   text-decoration: none;
-  color: var(--text);
-  transition: var(--transition);
   cursor: pointer;
+  transition: var(--transition);
+  box-shadow: 0 4px 20px rgba(99, 102, 241, 0.3);
   position: relative;
   overflow: hidden;
 }
 
-.contact-card::before {
+.contact-btn::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: var(--accent-gradient);
+  background: linear-gradient(135deg, rgba(255,255,255,0.15), transparent);
   opacity: 0;
   transition: var(--transition);
 }
 
-.contact-card:hover {
-  border-color: var(--primary);
-  transform: translateX(4px);
-  box-shadow: var(--shadow-glow);
+.contact-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(99, 102, 241, 0.4);
+  color: #fff;
 }
 
-.contact-card:hover::before {
-  opacity: 0.06;
+.contact-btn:hover::before {
+  opacity: 1;
 }
 
-.contact-card-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
-  flex-shrink: 0;
-  position: relative;
-  z-index: 1;
+.contact-btn:active {
+  transform: translateY(0);
 }
 
-.contact-card-text {
-  position: relative;
-  z-index: 1;
-  flex: 1;
-}
-
-.contact-card-label {
-  font-size: 0.8rem;
-  color: var(--text-muted);
-  margin-bottom: 2px;
-}
-
-.contact-card-value {
-  font-size: 0.95rem;
-  font-weight: 500;
-  color: var(--text);
-}
-
-.contact-card--email .contact-card-icon    { background: rgba(239,68,68,0.15); color: #EF4444; }
-
-.contact-card-arrow {
-  color: var(--text-muted);
-  position: relative;
-  z-index: 1;
-  transition: var(--transition);
-}
-
-.contact-card:hover .contact-card-arrow {
-  color: var(--primary);
-  transform: translateX(4px);
+.contact-btn svg {
+  width: 20px;
+  height: 20px;
 }
 
 /* ============================================

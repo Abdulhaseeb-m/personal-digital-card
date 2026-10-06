@@ -1,6 +1,5 @@
 import { useState, useCallback } from 'react';
 import ProfileHeader from './components/ProfileHeader';
-import SaveContactButton from './components/SaveContactButton';
 import SocialLinks from './components/SocialLinks';
 import ContactLinks from './components/ContactLinks';
 import QRCodeSection from './components/QRCodeSection';
@@ -21,7 +20,6 @@ export default function App() {
   return (
     <div className="app">
       <ProfileHeader />
-      <SaveContactButton onToast={showToast} />
       <SocialLinks />
       <ContactLinks />
       <QRCodeSection onToast={showToast} />
