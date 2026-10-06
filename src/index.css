@@ -1,0 +1,615 @@
+/* ============================================
+   DIGITAL CONTACT CARD – GLOBAL STYLES
+   Premium dark theme with indigo/violet accents
+   ============================================ */
+
+/* ---------- Google Font ---------- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+/* ---------- CSS Custom Properties ---------- */
+:root {
+  --bg:             #0B0F19;
+  --bg-secondary:   #111827;
+  --card:           #111827;
+  --card-hover:     #1a2236;
+  --primary:        #6366F1;
+  --primary-light:  #818cf8;
+  --secondary:      #8B5CF6;
+  --accent-gradient: linear-gradient(135deg, #6366F1, #8B5CF6);
+  --text:           #FFFFFF;
+  --text-secondary: #9CA3AF;
+  --text-muted:     #6B7280;
+  --border:         rgba(99, 102, 241, 0.15);
+  --glow:           rgba(99, 102, 241, 0.35);
+  --radius:         16px;
+  --radius-sm:      12px;
+  --radius-xs:      8px;
+  --shadow:         0 4px 24px rgba(0, 0, 0, 0.3);
+  --shadow-glow:    0 0 30px rgba(99, 102, 241, 0.15);
+  --transition:     0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --font:           'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* ---------- Reset ---------- */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Ambient background glow */
+body::before {
+  content: '';
+  position: fixed;
+  top: -40%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(99,102,241,0.08) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+#root {
+  position: relative;
+  z-index: 1;
+}
+
+/* ---------- App Container ---------- */
+.app {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 24px 20px 40px;
+  min-height: 100vh;
+}
+
+/* ---------- Section Titles ---------- */
+.section-title {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+/* ============================================
+   PROFILE HEADER
+   ============================================ */
+.profile-header {
+  text-align: center;
+  padding-top: 20px;
+  margin-bottom: 28px;
+}
+
+/* Profile Image */
+.profile-image-wrapper {
+  position: relative;
+  width: 140px;
+  height: 140px;
+  margin: 0 auto 24px;
+  animation: profileIn 0.8s ease-out both;
+}
+
+.profile-image-ring {
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  background: var(--accent-gradient);
+  padding: 4px;
+  animation: ringPulse 3s ease-in-out infinite;
+}
+
+.profile-image-ring::before {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  background: var(--accent-gradient);
+  opacity: 0.3;
+  filter: blur(12px);
+  z-index: -1;
+}
+
+.profile-image {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--bg);
+  display: block;
+  position: relative;
+  z-index: 1;
+}
+
+/* Profile Text */
+.profile-name {
+  font-size: 1.75rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #fff 30%, var(--primary-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 6px;
+  animation: fadeUp 0.6s ease-out 0.2s both;
+}
+
+.profile-title {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--primary-light);
+  margin-bottom: 4px;
+  animation: fadeUp 0.6s ease-out 0.3s both;
+}
+
+.profile-university {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+  animation: fadeUp 0.6s ease-out 0.35s both;
+}
+
+.profile-location {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  animation: fadeUp 0.6s ease-out 0.4s both;
+}
+
+.profile-location svg {
+  width: 14px;
+  height: 14px;
+  color: var(--primary);
+}
+
+.profile-bio {
+  margin-top: 16px;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  max-width: 380px;
+  margin-left: auto;
+  margin-right: auto;
+  animation: fadeUp 0.6s ease-out 0.45s both;
+}
+
+/* ============================================
+   SAVE CONTACT BUTTON
+   ============================================ */
+.save-contact-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 16px 24px;
+  margin-bottom: 32px;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: var(--accent-gradient);
+  color: #fff;
+  font-family: var(--font);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: 0 4px 20px rgba(99, 102, 241, 0.3);
+  position: relative;
+  overflow: hidden;
+  animation: fadeUp 0.6s ease-out 0.5s both;
+}
+
+.save-contact-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.15), transparent);
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.save-contact-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(99, 102, 241, 0.4);
+}
+
+.save-contact-btn:hover::before {
+  opacity: 1;
+}
+
+.save-contact-btn:active {
+  transform: translateY(0);
+}
+
+.save-contact-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* ============================================
+   SOCIAL LINKS GRID
+   ============================================ */
+.social-section {
+  margin-bottom: 32px;
+  animation: fadeUp 0.6s ease-out 0.55s both;
+}
+
+.social-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.social-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  color: var(--text);
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: var(--transition);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.social-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--accent-gradient);
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.social-card:hover {
+  border-color: var(--primary);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-glow);
+}
+
+.social-card:hover::before {
+  opacity: 0.06;
+}
+
+.social-card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.social-card-label {
+  position: relative;
+  z-index: 1;
+  font-weight: 500;
+}
+
+/* Social icon colors */
+.social-card--linkedin .social-card-icon { background: rgba(10,102,194,0.15); color: #0A66C2; }
+.social-card--github .social-card-icon   { background: rgba(255,255,255,0.1); color: #fff; }
+.social-card--instagram .social-card-icon { background: rgba(225,48,108,0.15); color: #E1306C; }
+.social-card--facebook .social-card-icon  { background: rgba(24,119,242,0.15); color: #1877F2; }
+.social-card--snapchat .social-card-icon  { background: rgba(255,252,0,0.15); color: #FFFC00; }
+.social-card--portfolio .social-card-icon { background: rgba(99,102,241,0.15); color: var(--primary); }
+
+/* ============================================
+   CONTACT LINKS
+   ============================================ */
+.contact-section {
+  margin-bottom: 32px;
+  animation: fadeUp 0.6s ease-out 0.6s both;
+}
+
+.contact-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.contact-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 18px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  color: var(--text);
+  transition: var(--transition);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--accent-gradient);
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.contact-card:hover {
+  border-color: var(--primary);
+  transform: translateX(4px);
+  box-shadow: var(--shadow-glow);
+}
+
+.contact-card:hover::before {
+  opacity: 0.06;
+}
+
+.contact-card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.contact-card-text {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+}
+
+.contact-card-label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 2px;
+}
+
+.contact-card-value {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.contact-card--phone .contact-card-icon    { background: rgba(16,185,129,0.15); color: #10B981; }
+.contact-card--email .contact-card-icon    { background: rgba(239,68,68,0.15); color: #EF4444; }
+.contact-card--whatsapp .contact-card-icon { background: rgba(37,211,102,0.15); color: #25D366; }
+.contact-card--location .contact-card-icon { background: rgba(99,102,241,0.15); color: var(--primary); }
+
+.contact-card-arrow {
+  color: var(--text-muted);
+  position: relative;
+  z-index: 1;
+  transition: var(--transition);
+}
+
+.contact-card:hover .contact-card-arrow {
+  color: var(--primary);
+  transform: translateX(4px);
+}
+
+/* ============================================
+   QR CODE SECTION
+   ============================================ */
+.qr-section {
+  margin-bottom: 32px;
+  animation: fadeUp 0.6s ease-out 0.65s both;
+}
+
+.qr-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px;
+  text-align: center;
+}
+
+.qr-wrapper {
+  display: inline-block;
+  background: #fff;
+  padding: 16px;
+  border-radius: var(--radius-sm);
+  margin-bottom: 16px;
+  box-shadow: var(--shadow);
+}
+
+.qr-hint {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+
+.share-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xs);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.share-btn:hover {
+  border-color: var(--primary);
+  background: rgba(99, 102, 241, 0.08);
+  color: var(--primary-light);
+}
+
+.share-btn svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.footer {
+  text-align: center;
+  padding: 24px 0 8px;
+  border-top: 1px solid var(--border);
+  animation: fadeUp 0.6s ease-out 0.7s both;
+}
+
+.footer-copyright {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+.footer-tagline {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  letter-spacing: 1.5px;
+}
+
+/* ============================================
+   TOAST NOTIFICATION
+   ============================================ */
+.toast {
+  position: fixed;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  background: var(--card);
+  border: 1px solid var(--primary);
+  border-radius: var(--radius-xs);
+  padding: 12px 24px;
+  color: var(--text);
+  font-size: 0.9rem;
+  font-weight: 500;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.4), 0 0 20px rgba(99,102,241,0.2);
+  z-index: 9999;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
+}
+
+.toast--visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+  pointer-events: auto;
+}
+
+.toast svg {
+  width: 18px;
+  height: 18px;
+  color: var(--primary-light);
+  flex-shrink: 0;
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+@keyframes profileIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes ringPulse {
+  0%, 100% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(1.2);
+  }
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 400px) {
+  .app {
+    padding: 16px 14px 32px;
+  }
+
+  .profile-name {
+    font-size: 1.5rem;
+  }
+
+  .social-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-image-wrapper {
+    width: 120px;
+    height: 120px;
+  }
+
+  .profile-image {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+@media (min-width: 768px) {
+  .app {
+    padding: 48px 24px 60px;
+  }
+
+  .social-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
