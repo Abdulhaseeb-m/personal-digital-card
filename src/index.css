@@ -603,13 +603,4 @@ body::before {
   .app {
     padding: 48px 24px 60px;
   }
-
-  .social-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .contact-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-  }
 }

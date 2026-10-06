@@ -1,15 +1,7 @@
-import { Phone, Mail, MessageCircle, MapPin, ChevronRight } from 'lucide-react';
+import { Mail, ChevronRight } from 'lucide-react';
 import { profile } from '../data/profile';
 
 const contacts = [
-  {
-    key: 'phone',
-    label: 'Call Me',
-    value: profile.phone,
-    icon: Phone,
-    href: `tel:${profile.phone}`,
-    className: 'contact-card--phone',
-  },
   {
     key: 'email',
     label: 'Email Me',
@@ -17,23 +9,6 @@ const contacts = [
     icon: Mail,
     href: `mailto:${profile.email}`,
     className: 'contact-card--email',
-  },
-  
-  {
-    key: 'whatsapp',
-    label: 'WhatsApp',
-    value: profile.phone,
-    icon: MessageCircle,
-    href: `https://wa.me/${profile.whatsapp}`,
-    className: 'contact-card--whatsapp',
-  },
-  {
-    key: 'location',
-    label: 'Location',
-    value: profile.location,
-    icon: MapPin,
-    href: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(profile.location)}`,
-    className: 'contact-card--location',
   },
 ];
 
@@ -46,8 +21,6 @@ export default function ContactLinks() {
           <a
             key={key}
             href={href}
-            target={key === 'location' ? '_blank' : undefined}
-            rel={key === 'location' ? 'noopener noreferrer' : undefined}
             className={`contact-card ${className}`}
             aria-label={label}
           >
