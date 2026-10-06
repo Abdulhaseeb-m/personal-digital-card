@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { QRCodeSVG } from 'qrcode.react';
-import { Share2, Check } from 'lucide-react';
+import { Share2 } from 'lucide-react';
 
 export default function QRCodeSection({ onToast }) {
   const [url, setUrl] = useState('');

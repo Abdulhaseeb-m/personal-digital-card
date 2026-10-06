@@ -402,10 +402,7 @@ body::before {
   color: var(--text);
 }
 
-.contact-card--phone .contact-card-icon    { background: rgba(16,185,129,0.15); color: #10B981; }
 .contact-card--email .contact-card-icon    { background: rgba(239,68,68,0.15); color: #EF4444; }
-.contact-card--whatsapp .contact-card-icon { background: rgba(37,211,102,0.15); color: #25D366; }
-.contact-card--location .contact-card-icon { background: rgba(99,102,241,0.15); color: var(--primary); }
 
 .contact-card-arrow {
   color: var(--text-muted);
