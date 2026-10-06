@@ -1,4 +1,5 @@
 import { useState, useCallback } from 'react';
+import { Analytics } from '@vercel/analytics/react';
 import ProfileHeader from './components/ProfileHeader';
 import SocialLinks from './components/SocialLinks';
 import ContactLinks from './components/ContactLinks';
@@ -25,6 +26,7 @@ export default function App() {
       <QRCodeSection onToast={showToast} />
       <Footer />
       <Toast message={toast.message} visible={toast.visible} onHide={hideToast} />
+      <Analytics />
     </div>
   );
 }
